@@ -1,0 +1,13 @@
+.DS_*
+a.out
+debugout
+txt
+/*.dSYM
+.code-workspace
+ni_*
+gnlTester/
+debugout.dSYM/
+.vis*
+main*
+*.o
+*.a
