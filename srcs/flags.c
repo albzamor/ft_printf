@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 08:51:22 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/29 11:57:20 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 19:26:37 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int ft_flag_zero(t_print *tab, const char *format, int pos)
 	if (ft_isdigit(format[pos]))
 	{
 		i = ft_atoi(&format[pos]);
-		pos += ft_numlen(i);
+		pos += ft_length_number(i);
 	}
 	tab->width = i;
 	return (pos);

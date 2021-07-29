@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 08:00:39 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/29 11:02:09 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 19:43:04 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ tab->width = 0;
 tab->zero = 0;
 tab->sign = 0;
 tab->length_return = 0;
-tab->is_zero = 0;
+tab->zero = 0;
 tab->hash = 0;
 tab->perc = 0;
 tab->space = 0;
@@ -32,7 +32,7 @@ t_print *ft_reset_minuslength_tab(t_print *tab)
 tab->width = 0;
 tab->zero = 0;
 tab->sign = 0;
-tab->is_zero = 0;
+tab->zero = 0;
 tab->hash = 0;
 tab->perc = 0;
 tab->space = 0;

@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 08:19:15 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/29 12:00:23 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 20:11:20 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,20 +54,44 @@ int	ft_atoi(const char *str)
 	return (number * sign);
 }
 
-int	ft_numlen(long n)
+int	ft_length_number(long nbr)
 {
-	int	count;
+	int	len;
 
-	count = 0;
-	if (n <= 0)
+	len = 0;
+	if (nbr <= 0)
+		++len;
+	while (nbr != 0)
 	{
-		count += 1;
-		n *= -1;
+		++len;
+		nbr = nbr / 10;
 	}
-	while (n > 0)
+	return (len);
+}
+
+char	*ft_itoa(int nbr)
+{
+	char	*number;
+	int		len;
+	int		sign;
+
+	sign = 1;
+	if (nbr < 0)
+		sign = -1;
+	len = ft_length_number(nbr);
+	number = malloc(sizeof(char) * (len + 1));
+	if (number == NULL)
+		return (NULL);
+	if (nbr < 0)
+		number[0] = '-';
+	else if (nbr == 0)
+		number[0] = '0';
+	number[len] = '\0';
+	while (nbr != 0)
 	{
-		count++;
-		n /= 10;
+		--len;
+		number[len] = sign * (nbr % 10) + '0';
+		nbr = nbr / 10;
 	}
-	return (count);
+	return (number);
 }

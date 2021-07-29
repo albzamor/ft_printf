@@ -10,8 +10,10 @@ SRC = 	./srcs/conv1_c_s_d_u_p.c \
 		./srcs/flags.c \
 		./srcs/ft_printf.c \
 		./srcs/libft.c \
+		./srcs/libft_2.c \
 		./srcs/struct.c \
 		./srcs/prepare_tab.c \
+		./srcs/zero.c \
 
 
 OBJ = $(SRC:.c=.o)
