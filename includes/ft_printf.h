@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:21:30 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/25 17:09:51 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 11:59:43 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ typedef struct s_print
 	int	zero;				// 0
 	int	width;				// 	minimum fuekd Widh?
 	int	hash;				// #	+ invisible
-	int	spc;				// " "  space
+	int	space;				// " "  space
 	int	plus;				// +	sign +
 
 }				t_print;
@@ -44,7 +44,7 @@ int	ft_isalpha(int c);
 int	ft_flag_minus(t_print *tab, const char *format, int pos);
 int ft_flag_zero(t_print *tab, const char *format, int pos);
 int ft_flag_width(t_print *tab, const char *format, int pos);
-int ft_flag_space(t_print *tab, const char *format);
+int ft_flag_space(t_print *tab, int pos);
 int ft_flag_plus(t_print *tab, const char *format);
 int	ft_isdigit(int c);
 void	ft_print_char(t_print *tab);
@@ -57,6 +57,9 @@ int	ft_percentage(t_print *tab);
 int ft_printf(const char *format, ...);
 void	ft_prepare_tab(t_print *tab, int len);
 void	ft_print_char(t_print *tab);
+int	ft_atoi(const char *str);
+int ft_flag_zero(t_print *tab, const char *format, int pos);
+int	ft_numlen(long n);
 
 #endif
 

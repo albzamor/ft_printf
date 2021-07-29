@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 08:00:39 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/27 19:43:49 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 11:02:09 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ tab->length_return = 0;
 tab->is_zero = 0;
 tab->hash = 0;
 tab->perc = 0;
-tab->spc = 0;
+tab->space = 0;
 tab->plus = 0;
 tab->minus = 0;//comp minus y hash
 return (tab);
@@ -35,7 +35,7 @@ tab->sign = 0;
 tab->is_zero = 0;
 tab->hash = 0;
 tab->perc = 0;
-tab->spc = 0;
+tab->space = 0;
 tab->plus = 0;
 tab->minus = 0;
 return (tab);

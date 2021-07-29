@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   evaluate.c                                         :+:      :+:    :+:   */
+/*   evaluate_flags.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 07:54:52 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/25 17:00:04 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 11:35:33 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,16 +27,18 @@ int	ft_eval_flags(t_print *tab, const char *format, int pos)
 {
 	while (!(ft_isalpha(format[pos]) || format[pos] == '%'))
 	{
-		if (format[pos] == '-')
-			pos = ft_flag_minus(tab, format, pos);
+		if (format[pos] == ' ')
+			pos = ft_flag_space(tab, pos);
 		if (format[pos] == '0')
 			pos = ft_flag_zero(tab, format, pos);
-		if (ft_isdigit(format[pos]))
-			pos = ft_flag_width(tab, format, pos);
-		if (format[pos] == ' ')
-			pos = ft_flag_space(tab, format);
+		if (format[pos] == '-')
+			pos = ft_flag_minus(tab, format, pos);
 		if (format[pos] ==  '+')
 			pos = ft_flag_plus(tab, format);
+		if (ft_isdigit(format[pos]))
+			pos = ft_flag_width(tab, format, pos);
+
+
 	}
 	ft_eval_csdiupx(tab, format, pos);
 	ft_reset_minuslength_tab(tab);

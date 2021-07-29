@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 10:49:43 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/25 17:50:27 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 11:01:48 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int ft_printf(const char *format, ...)
 	t_print *tab;
 	int i;
 	int ret;
+	if (!format)
+		return (0);
 	tab = (t_print *)malloc(sizeof(t_print));
 	if (!tab)
 		return (-1);

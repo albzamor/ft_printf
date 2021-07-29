@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 09:37:48 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/25 17:10:16 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/07/29 10:59:43 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,26 +18,12 @@ void	ft_print_char(t_print *tab)
 
 	c = va_arg(tab->args, int);
 	ft_prepare_tab(tab, 1);
-	//if (tab->width && !tab->hash)
+	//if (tab->width && !tab->minus)
 		//ft_right_cs(tab, 0);
 	tab->length_return += write(1, &c, 1);
-	//if (tab->width && tab->hash)
+	//if (tab->width && tab->minus)
 		//ft_left_cs(tab, 0);
 }
-
-/* void	ft_output_char(t_print *tab)
-{
-	char	a;
-
-	a = va_arg(tab->args, int);
-	ft_update_tab(tab, 1);
-	if (tab->wdt && !tab->dash)
-		ft_right_cs(tab, 0);
-	tab->tl += write(1, &a, 1);
-	if (tab->wdt && tab->dash)
-		ft_left_cs(tab, 0);
-} */
-
 
 int	ft_print_string(t_print *tab)
 {

@@ -6,7 +6,7 @@ CC := cc
 
 SRC = 	./srcs/conv1_c_s_d_u_p.c \
 		./srcs/conv2_x_percentage.c \
-		./srcs/evaluate.c \
+		./srcs/evaluate_flags.c \
 		./srcs/flags.c \
 		./srcs/ft_printf.c \
 		./srcs/libft.c \
