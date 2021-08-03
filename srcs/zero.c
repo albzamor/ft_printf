@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 19:50:24 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/29 20:01:26 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/03 19:27:00 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	ft_right_zero(t_print *tab)
 {
 	if (tab->width && (tab->zero))
 	{
-		if (!tab->perc)
+		if (!tab->percentage)
 		{
 			while (tab->zero && tab->width-- > 0)
 				tab->length_return += write(1, "0", 1);
@@ -41,12 +41,12 @@ void	ft_right_zero(t_print *tab)
 		}
 		else
 		{
-			tab->width -= tab->perc;
-			while (tab->minus && tab->perc-- > 0)
+			tab->width -= tab->percentage;
+			while (tab->minus && tab->percentage-- > 0)
 				tab->length_return += write(1, "0", 1);
 			while (tab->width-- > 0)
 				tab->length_return += write(1, " ", 1);
-			while (!tab->minus && tab->perc-- > 0)
+			while (!tab->minus && tab->percentage-- > 0)
 				tab->length_return += write(1, "0", 1);
 		}
 	}

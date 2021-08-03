@@ -6,21 +6,11 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 07:54:52 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/29 11:35:33 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/03 19:12:01 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-/*ft_eval_flags
-
-while not udcsupxX%
-if (format[pos] == '.')
-tab->pnt = 1; # we set it to true, 1
-pos++;
-if (format[pos] == '-')
-tab->dash = 1;
-pos++; */
 
 /* evaluate is !alphanumeric or !% : - 0 number spc + */
 int	ft_eval_flags(t_print *tab, const char *format, int pos)
@@ -33,12 +23,12 @@ int	ft_eval_flags(t_print *tab, const char *format, int pos)
 			pos = ft_flag_zero(tab, format, pos);
 		if (format[pos] == '-')
 			pos = ft_flag_minus(tab, format, pos);
-		if (format[pos] ==  '+')
-			pos = ft_flag_plus(tab, format);
+		if (format[pos] == '+')
+			pos = ft_flag_plus(tab, pos);
+		if (format[pos] == '.')
+			pos = ft_precision(tab, format, pos);
 		if (ft_isdigit(format[pos]))
-			pos = ft_flag_width(tab, format, pos);
-
-
+			pos = ft_width(tab, format, pos);
 	}
 	ft_eval_csdiupx(tab, format, pos);
 	ft_reset_minuslength_tab(tab);
@@ -46,7 +36,7 @@ int	ft_eval_flags(t_print *tab, const char *format, int pos)
 }
 
 /* evaluate witch csdiupx conversion*/
-int 	ft_eval_csdiupx(t_print *tab, const char *format, int pos)
+int	ft_eval_csdiupx(t_print *tab, const char *format, int pos)
 
 {
 	if (format[pos] == 'c')

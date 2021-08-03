@@ -6,27 +6,11 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:35:49 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/29 19:44:16 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/03 21:15:30 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-
-void	ft_write_zero(t_print *tab)
-{
-	tab->zero = 1;
-	if ((tab->width && tab->zero))
-	{
-		ft_right_zero(tab);
-		return ;
-	}
-	ft_update_tab(tab, 1);
-	while (!tab->minus && --tab->width > 0)
-		tab->length_return += write(1, " ", 1);
-	tab->length_return += write(1, "0", 1);
-	while (tab->minus && --tab->width > 0)
-		tab->length_return += write(1, " ", 1);
-}
 
 void	ft_prepare_tab(t_print *tab, int len)
 {
@@ -35,20 +19,48 @@ void	ft_prepare_tab(t_print *tab, int len)
 		if (tab->width)
 			tab->width -= 1;
 	}
-	if (tab->perc > 0)
+	if (tab->precision > 0)
 		tab->zero = 0;
-	if (tab->width && tab->width >= tab->perc)
+	if (tab->width && tab->width >= tab->precision)
 	{
-		if (tab->perc > len)
-			tab->perc -= len;
+		if (tab->precision > len)
+			tab->precision -= len;
 		else
-			tab->perc = 0;
+			tab->precision = 0;
 		if (!tab->zero)
-			tab->width = tab->width - tab->perc - len;
+			tab->width = tab->width - tab->precision - len;
 	}
-	else if (tab->perc > tab->width)
+	else if (tab->precision > tab->width)
 	{
 		tab->width = 0;
-		tab->perc -= len;
+		tab->precision -= len;
 	}
+}
+
+void	ft_check_precision(t_print *tab)
+{
+	if (tab->precision == 0 && tab->zero == 1)
+	{
+		tab->zero = 0;
+		tab->percentage = 1;
+	}
+	if (tab->precision < 0)
+	{
+		tab->precision = 0;
+		tab->point = 0;
+	}
+}
+
+int	ft_check_minus_point(char c)
+{
+	if (c == '-' || c == '.')
+		return (1);
+	return (0);
+}
+
+int	ft_check_sign(t_print *tab, int j)
+{
+	tab->sign = 1;
+	tab->space = 0;
+	return (j * -1);
 }
