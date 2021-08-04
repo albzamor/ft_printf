@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:21:30 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 11:48:45 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 22:50:34 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,17 +22,18 @@
 typedef struct s_print
 {
 	va_list	args;
-	int		percentage;
 	int		length_return;
+	int		percentage;
 	int		sign;
 	int		precision;
 	int		minus;
 	int		zero;
 	int		width;
-	int		hash;
+	int		hashtag;
 	int		space;
 	int		point;
 	int		plus;
+	int		number_zero;
 }				t_print;
 
 t_print	*ft_initialise_tab(t_print *tab);
@@ -45,6 +46,7 @@ int		ft_flag_zero(t_print *tab, const char *format, int pos);
 int		ft_flag_width(t_print *tab, const char *format, int pos);
 int		ft_flag_space(t_print *tab, int pos);
 int		ft_flag_plus(t_print *tab, int pos);
+int		ft_flag_hashtag(t_print *tab, int pos);
 int		ft_isdigit(int c);
 void	ft_print_char(t_print *tab);
 void	ft_print_string(t_print *tab);
@@ -69,7 +71,7 @@ void	ft_print_right_c_s(t_print *tab, int len);
 void	ft_print_left_c_s(t_print *tab, int len);
 void	ft_print_right_i_d_u_p_x(t_print *tab);
 void	ft_print_left_i_d_u_p_x(t_print *tab);
-int		ft_check_sign(t_print *tab, int j);
+long	ft_negative_sign(t_print *tab, long j);
 int		ft_width(t_print *tab, const char *format, int pos);
 size_t	ft_strlen(const char *s);
 void	ft_string_point(t_print *tab);

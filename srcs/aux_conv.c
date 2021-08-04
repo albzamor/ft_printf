@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 20:53:44 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 11:24:51 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 23:05:09 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,4 +38,13 @@ void	ft_write_null_pointer(t_print *tab)
 	tab->length_return += write(1, "0x", 2);
 	while (tab->precision-- > 0)
 		tab->length_return += write(1, "0", 1);
+}
+
+long	ft_negative_sign(t_print *tab, long j)
+{
+	tab->sign = 1;
+	tab->space = 0;
+	// if (j == -2147483648)
+		// return (-j);
+	return (j * -1);
 }

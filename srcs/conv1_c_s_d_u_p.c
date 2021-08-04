@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 09:37:48 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 11:31:25 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 23:06:54 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,19 +54,19 @@ void	ft_print_string(t_print *tab)
 void	ft_print_int(t_print *tab)
 {
 	int		i;
-	int		j;
+	long	j;
 	char	*num;
 	int		len;
 
 	i = 0;
-	j = va_arg(tab->args, int);
+	j = va_arg(tab->args, long);
 	if (!j)
 	{
 		ft_write_zero(tab);
 		return ;
 	}
 	if (j < 0)
-		j = ft_check_sign(tab, j);
+		j = ft_negative_sign(tab, j);
 	num = ft_itoa(j);
 	if (!num)
 		return ;

@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 19:50:24 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/03 19:27:00 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 21:28:20 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_write_zero(t_print *tab)
 {
-	tab->zero = 1;
+	tab->number_zero = 1;
 	if ((tab->width && tab->zero))
 	{
 		ft_right_zero(tab);

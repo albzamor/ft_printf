@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 08:19:15 by albzamor          #+#    #+#             */
-/*   Updated: 2021/07/29 20:11:20 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 23:03:13 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,9 @@ int	ft_length_number(long nbr)
 
 char	*ft_itoa(int nbr)
 {
-	char	*number;
-	int		len;
-	int		sign;
+	char			*number;
+	long long		len;
+	int				sign;
 
 	sign = 1;
 	if (nbr < 0)

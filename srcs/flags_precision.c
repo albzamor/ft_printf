@@ -6,12 +6,13 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:00:43 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/03 19:40:32 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 14:49:39 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+/* "." number of digits/char after point */
 int	ft_precision(t_print *tab, const char *format, int pos)
 {
 	int	i;
@@ -32,5 +33,13 @@ int	ft_precision(t_print *tab, const char *format, int pos)
 		pos += ft_length_number(i);
 	}
 	tab->precision = i;
+	return (pos);
+}
+
+/* flag '#' put sign invisible */
+int	ft_flag_hashtag(t_print *tab, int pos)
+{
+	pos++;
+	tab->hashtag = 1;
 	return (pos);
 }

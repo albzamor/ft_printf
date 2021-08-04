@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 07:54:52 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/03 19:12:01 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 18:11:54 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,15 +23,16 @@ int	ft_eval_flags(t_print *tab, const char *format, int pos)
 			pos = ft_flag_zero(tab, format, pos);
 		if (format[pos] == '-')
 			pos = ft_flag_minus(tab, format, pos);
-		if (format[pos] == '+')
-			pos = ft_flag_plus(tab, pos);
 		if (format[pos] == '.')
 			pos = ft_precision(tab, format, pos);
 		if (ft_isdigit(format[pos]))
 			pos = ft_width(tab, format, pos);
+		if (format[pos] == '+')
+			pos = ft_flag_plus(tab, pos);
+		if (format[pos] == '#')
+			pos = ft_flag_hashtag(tab, pos);
 	}
 	ft_eval_csdiupx(tab, format, pos);
-	ft_reset_minuslength_tab(tab);
 	return (pos);
 }
 
@@ -53,5 +54,6 @@ int	ft_eval_csdiupx(t_print *tab, const char *format, int pos)
 		ft_print_hex_int(tab, format[pos] - 23);
 	else if (format[pos] == '%')
 		ft_percentage(tab);
+	ft_reset_minuslength_tab(tab);
 	return (pos);
 }

@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:35:49 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/03 21:15:30 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 21:28:20 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	ft_prepare_tab(t_print *tab, int len)
 			tab->precision -= len;
 		else
 			tab->precision = 0;
-		if (!tab->zero)
+		if (!tab->number_zero)
 			tab->width = tab->width - tab->precision - len;
 	}
 	else if (tab->precision > tab->width)
@@ -56,11 +56,4 @@ int	ft_check_minus_point(char c)
 	if (c == '-' || c == '.')
 		return (1);
 	return (0);
-}
-
-int	ft_check_sign(t_print *tab, int j)
-{
-	tab->sign = 1;
-	tab->space = 0;
-	return (j * -1);
 }
