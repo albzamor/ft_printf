@@ -11,3 +11,4 @@ debugout.dSYM/
 main*
 *.o
 *.a
+printfTester/
