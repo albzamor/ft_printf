@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/24 10:49:43 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/03 18:53:13 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 12:01:00 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ int	ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 			i = ft_eval_flags(tab, format, i + 1);
-			//printf("conversion requerida");
 		else
 			ret += write(1, &format[i], 1);
 	}

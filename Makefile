@@ -29,6 +29,9 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	ar rc $(NAME) $?
 
+bonus: $(OBJ)
+	ar rcs $(NAME) $(OBJ)
+
 clean:
 	rm -f $(OBJ)
 

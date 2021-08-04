@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:21:30 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/03 21:16:31 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:48:45 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,10 @@ size_t	ft_strlen(const char *s);
 void	ft_string_point(t_print *tab);
 int		ft_prepare_tab_string(char *s, t_print *tab, int len);
 void	ft_print_string(t_print *tab);
+char	*ft_unsigned_itoa(unsigned int nb);
+void	ft_write_null_pointer(t_print *tab);
+int		ft_numlen_base(unsigned long n, int base);
+int		ft_putnbr_base(unsigned long n, char *base);
+char	*ft_itoa_base(char *str, unsigned long n, int base, int c);
 
 #endif

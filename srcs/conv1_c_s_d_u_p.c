@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 09:37:48 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/03 21:12:43 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/04 11:31:25 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,10 +81,55 @@ void	ft_print_int(t_print *tab)
 
 void	ft_print_unsigned_int(t_print *tab)
 {
-	printf("En construccion: print unsigned_int%d", tab->zero);
+	int				i;
+	unsigned int	j;
+	char			*num;
+	int				len;
+
+	i = 0;
+	j = va_arg(tab->args, int);
+	if (!j)
+	{
+		ft_write_zero(tab);
+		return ;
+	}
+	num = ft_unsigned_itoa(j);
+	if (!num)
+		return ;
+	len = ft_length_number(j);
+	ft_prepare_tab(tab, len);
+	ft_print_right_i_d_u_p_x(tab);
+	while (num[i])
+		tab->length_return += write(1, &num[i++], 1);
+	ft_print_left_i_d_u_p_x(tab);
+	free(num);
 }
 
 void	ft_print_pointer(t_print *tab)
 {
-	printf("En construccion: print pointer%d", tab->zero);
+	unsigned long	j;
+	int				l;
+
+	l = 2;
+	j = (unsigned long)va_arg(tab->args, void *);
+	if (!j && tab->point && tab->precision > 0)
+	{
+		ft_write_null_pointer(tab);
+		return ;
+	}
+	if (!(!j && tab->point))
+		l += ft_numlen_base(j, 16);
+	if (!tab->precision || tab->width > tab->precision)
+	{
+		ft_prepare_tab(tab, l);
+		ft_print_right_i_d_u_p_x(tab);
+	}
+	else
+		tab->precision = tab->precision + 2 - l;
+	tab->length_return += write(1, "0x", 2);
+	while (tab->precision-- > 0)
+		tab->length_return += write(1, "0", 1);
+	if (!(!j && tab->point))
+		tab->length_return += ft_putnbr_base(j, "0123456789abcdef");
+	ft_print_left_i_d_u_p_x(tab);
 }
