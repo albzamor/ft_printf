@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:21:30 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 22:50:34 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/05 10:35:06 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int		ft_flag_zero(t_print *tab, const char *format, int pos);
 int		ft_length_number(long n);
 void	ft_right_zero(t_print *tab);
 void	ft_write_zero(t_print *tab);
-char	*ft_itoa(int nbr);
+char	*ft_itoa(long nbr);
 int		ft_precision(t_print *tab, const char *format, int pos);
 void	ft_check_precision(t_print *tab);
 int		ft_check_minus_point(char c);

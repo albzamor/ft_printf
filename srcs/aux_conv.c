@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 20:53:44 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 23:05:09 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/05 10:34:51 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ long	ft_negative_sign(t_print *tab, long j)
 {
 	tab->sign = 1;
 	tab->space = 0;
-	// if (j == -2147483648)
-		// return (-j);
+	//if (j == -2147483648)
+		//j = 2147483648;
 	return (j * -1);
 }
