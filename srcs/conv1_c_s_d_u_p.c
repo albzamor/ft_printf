@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 09:37:48 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/05 10:35:38 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/05 21:03:39 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,10 @@ void	ft_print_char(t_print *tab)
 	c = va_arg(tab->args, int);
 	ft_prepare_tab(tab, 1);
 	if (tab->width && !tab->minus)
-		ft_print_right_c_s(tab, 0);
+		ft_print_before_c_s(tab, 0);
 	tab->length_return += write(1, &c, 1);
 	if (tab->width && tab->minus)
-		ft_print_left_c_s(tab, 0);
+		ft_print_after_c_s(tab, 0);
 }
 
 void	ft_print_string(t_print *tab)
@@ -40,7 +40,7 @@ void	ft_print_string(t_print *tab)
 		return (ft_string_point(tab));
 	len = ft_prepare_tab_string(s, tab, len);
 	if (!tab->minus && tab->width > len)
-		ft_print_right_c_s(tab, len);
+		ft_print_before_c_s(tab, len);
 	if (tab->precision > 0)
 		while (s[i] && tab->precision--)
 			tab->length_return += write(1, &s[i++], 1);
@@ -48,7 +48,7 @@ void	ft_print_string(t_print *tab)
 		while (s[i])
 			tab->length_return += write(1, &s[i++], 1);
 	if (s && tab->minus && tab->width)
-		ft_print_left_c_s(tab, len);
+		ft_print_after_c_s(tab, len);
 }
 
 void	ft_print_int(t_print *tab)
@@ -72,10 +72,10 @@ void	ft_print_int(t_print *tab)
 		return ;
 	len = ft_strlen(num);
 	ft_prepare_tab(tab, len);
-	ft_print_right_i_d_u_p_x(tab);
+	ft_print_before_i_d_u_p_x(tab);
 	while (j && num[i])
 		tab->length_return += write(1, &num[i++], 1);
-	ft_print_left_i_d_u_p_x(tab);
+	ft_print_after_i_d_u_p_x(tab);
 	free(num);
 }
 
@@ -98,10 +98,10 @@ void	ft_print_unsigned_int(t_print *tab)
 		return ;
 	len = ft_length_number(j);
 	ft_prepare_tab(tab, len);
-	ft_print_right_i_d_u_p_x(tab);
+	ft_print_before_i_d_u_p_x(tab);
 	while (num[i])
 		tab->length_return += write(1, &num[i++], 1);
-	ft_print_left_i_d_u_p_x(tab);
+	ft_print_after_i_d_u_p_x(tab);
 	free(num);
 }
 
@@ -122,7 +122,7 @@ void	ft_print_pointer(t_print *tab)
 	if (!tab->precision || tab->width > tab->precision)
 	{
 		ft_prepare_tab(tab, l);
-		ft_print_right_i_d_u_p_x(tab);
+		ft_print_before_i_d_u_p_x(tab);
 	}
 	else
 		tab->precision = tab->precision + 2 - l;
@@ -131,5 +131,5 @@ void	ft_print_pointer(t_print *tab)
 		tab->length_return += write(1, "0", 1);
 	if (!(!j && tab->point))
 		tab->length_return += ft_putnbr_base(j, "0123456789abcdef");
-	ft_print_left_i_d_u_p_x(tab);
+	ft_print_after_i_d_u_p_x(tab);
 }

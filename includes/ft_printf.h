@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:21:30 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/05 10:35:06 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/05 21:03:39 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,16 +61,16 @@ void	ft_print_char(t_print *tab);
 int		ft_atoi(const char *str);
 int		ft_flag_zero(t_print *tab, const char *format, int pos);
 int		ft_length_number(long n);
-void	ft_right_zero(t_print *tab);
+void	ft_before_zero(t_print *tab);
 void	ft_write_zero(t_print *tab);
 char	*ft_itoa(long nbr);
 int		ft_precision(t_print *tab, const char *format, int pos);
 void	ft_check_precision(t_print *tab);
 int		ft_check_minus_point(char c);
-void	ft_print_right_c_s(t_print *tab, int len);
-void	ft_print_left_c_s(t_print *tab, int len);
-void	ft_print_right_i_d_u_p_x(t_print *tab);
-void	ft_print_left_i_d_u_p_x(t_print *tab);
+void	ft_print_before_c_s(t_print *tab, int len);
+void	ft_print_after_c_s(t_print *tab, int len);
+void	ft_print_before_i_d_u_p_x(t_print *tab);
+void	ft_print_after_i_d_u_p_x(t_print *tab);
 long	ft_negative_sign(t_print *tab, long j);
 int		ft_width(t_print *tab, const char *format, int pos);
 size_t	ft_strlen(const char *s);

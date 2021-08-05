@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 09:37:52 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 21:30:45 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/05 21:03:39 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,10 +30,10 @@ void	ft_print_hex_int(t_print *tab, int c)
 		return ;
 	num = ft_itoa_base(num, j, 16, c);
 	ft_prepare_tab(tab, len);
-	ft_print_right_i_d_u_p_x(tab);
+	ft_print_before_i_d_u_p_x(tab);
 	while (num && len-- > 0)
 		tab->length_return += write(1, &num[len], 1);
-	ft_print_left_i_d_u_p_x(tab);
+	ft_print_after_i_d_u_p_x(tab);
 	free(num);
 }
 

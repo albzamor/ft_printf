@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 08:51:22 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 17:30:21 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/05 21:03:39 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_flag_zero(t_print *tab, const char *format, int pos)
 	return (pos);
 }
 
-/* flag '-' left adjustment*/
+/* flag '-' after adjustment*/
 int	ft_flag_minus(t_print *tab, const char *format, int pos)
 {
 	pos++;
@@ -57,7 +57,7 @@ int	ft_flag_minus(t_print *tab, const char *format, int pos)
 	return (pos);
 }
 
-/* flag 'minimun width' nº<width 0s left*/
+/* flag 'minimun width' nº<width 0s after*/
 int	ft_width(t_print *tab, const char *format, int pos)
 {
 	int	i;

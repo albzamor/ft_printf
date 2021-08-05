@@ -6,12 +6,13 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 16:35:49 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/04 21:28:20 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/05 21:21:23 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
+/* adjust width and precision */
 void	ft_prepare_tab(t_print *tab, int len)
 {
 	if (tab->sign)
