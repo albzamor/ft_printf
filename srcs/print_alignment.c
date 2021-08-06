@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/03 18:32:22 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/05 21:13:36 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/06 13:49:53 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,15 @@ void	ft_print_before_i_d_u_p_x(t_print *tab)
 {
 	if (tab->space)
 		tab->length_return += write(1, " ", 1);
+	if (tab->plus && !tab->sign && (!tab->width && !tab->precision))
+	{
+		tab->length_return += write(1, "+", 1);
+		tab->plus = 0;
+	}
 	if (tab->sign && (tab->zero || tab->minus
 			|| (!tab->width && !tab->precision)))
 	{
-		tab->length_return += write(1, "-", 1);//pone 1 signo
+		tab->length_return += write(1, "-", 1);
 		tab->sign = 0;
 	}
 	if (!tab->minus)
@@ -52,7 +57,7 @@ void	ft_print_before_i_d_u_p_x(t_print *tab)
 		while (tab->zero && --tab->width > -1)
 			tab->length_return += write(1, "0", 1);
 		if (tab->sign)
-			tab->length_return += write (1, "-", 1);//no entra
+			tab->length_return += write (1, "-", 1);
 	}
 	while (--tab->precision > -1)
 		tab->length_return += write(1, "0", 1);
