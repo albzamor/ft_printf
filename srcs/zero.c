@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/29 19:50:24 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/05 21:20:00 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/06 12:37:44 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,13 @@ void	ft_write_zero(t_print *tab)
 	while (!tab->minus && --tab->width > 0)
 		tab->length_return += write(1, " ", 1);
 	while (--tab->precision > -2)
-		tab->length_return +=  write(1, "0", 1);
+	{
+		if (tab->number_zero && tab->precision == -1 && tab->space == 1)
+		{
+			tab->length_return += write(1, " ", 1);
+		}
+		tab->length_return += write(1, "0", 1);
+	}
 	while (tab->minus && --tab->width > 0)
 		tab->length_return += write(1, " ", 1);
 }
