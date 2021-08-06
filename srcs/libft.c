@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/25 08:19:15 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/05 10:34:01 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/06 14:07:58 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ char	*ft_itoa(long nbr)
 	number = malloc(sizeof(char) * (len + 1));
 	if (number == NULL)
 		return (NULL);
-	//if (nbr == INT_MIN)
-		//nbr = 2147483648;
 	if (nbr < 0)
 		number[0] = '-';
 	else if (nbr == 0)

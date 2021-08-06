@@ -6,7 +6,7 @@
 /*   By: albzamor <albzamor@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/20 11:21:30 by albzamor          #+#    #+#             */
-/*   Updated: 2021/08/05 21:03:39 by albzamor         ###   ########.fr       */
+/*   Updated: 2021/08/06 13:59:31 by albzamor         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ typedef struct s_print
 	va_list	args;
 	int		length_return;
 	int		percentage;
-	int		sign;
+	int		sign_negative;
 	int		precision;
 	int		minus;
 	int		zero;
